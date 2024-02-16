@@ -72,3 +72,9 @@ export async function copyToClipboard(text: string) {
     // do nothing for now
   }
 }
+
+export function arraysAreEqual(array1: string[], array2: string[]): boolean {
+  return array1.length === array2.length && array1.every(
+    (value, index) => value === array2[index],
+  );
+}

@@ -11,11 +11,10 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Roboto';
     font-style: normal;
     font-weight: normal;
-    src:
-      url('${RobotoWoffTwo}') format('woff2'),
-      url('${RobotoWoff}') format('woff');
+    src: url('${RobotoWoffTwo}') format('woff2'),
+    url('${RobotoWoff}') format('woff');
   }
-  
+
   h1 {
     font-family: ${(props: GlobalThemeType) => props.theme.shared.fonts.primary};
     font-size: 25px;
@@ -35,9 +34,28 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 15px;
     margin: 5px;
   }
-  
+
   audio {
     border-radius: 8px;
     background-color: gray;
+  }
+
+  hr {
+    display: block;
+    margin: 4.0em auto;
+    border: none;
+    border-top: 3px double ${(props: GlobalThemeType) => props.theme.core.mainThemeColor};
+    overflow: visible;
+    text-align: center;
+    height: 5px;
+  }
+
+  hr:after {
+    background-color: ${(props: GlobalThemeType) => props.theme.core.bgColor};
+    padding: 0 12px;
+    font-size: 2.5rem;
+    content: '🍜';
+    position: relative;
+    top: -25px;
   }
 `;

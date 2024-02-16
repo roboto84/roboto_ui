@@ -50,7 +50,7 @@ export function Wh00tMini() {
   );
 
   if (isWh00tLarger) {
-    return (<div />);
+    return null;
   }
 
   if (state.wh00tWindowState === Wh00tWindowStateEnum.MIN) {

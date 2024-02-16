@@ -19,7 +19,7 @@ export function Layout(props: LayoutWithHeaderProps) {
   document.title = newTitle;
   const body:React.ReactNode = children || <Outlet />;
   let mainBodyFlexBasis = '100%';
-  let sideWindow: JSX.Element = <div />;
+  let sideWindow: JSX.Element = null;
   const isSidePanelActive = state.wh00tWindowState === Wh00tWindowStateEnum.MAX && !(pathname.includes('chat'));
 
   if (isSidePanelActive) {

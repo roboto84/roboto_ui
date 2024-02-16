@@ -44,7 +44,7 @@ export function ArcResultView(props: ArcResultViewProps) {
         lazyLoad
       />
     )
-    : <div />;
+    : null;
 
   const tagsView = tags ? tags.map((tag: string) => (
     <Link key={'resultTagListItem'.concat(tag)} to={navigate.concat(tag)}>
@@ -56,11 +56,11 @@ export function ArcResultView(props: ArcResultViewProps) {
 
   const descriptionView: JSX.Element = description !== 'None'
     ? <ArcResultDescription><span>{`${description}`}</span></ArcResultDescription>
-    : <div />;
+    : null;
 
   const changeMessage: JSX.Element = displayMessage !== ''
     ? <ArcChangeStatusContainer ref={_ref}>{displayMessage}</ArcChangeStatusContainer>
-    : <div />;
+    : null;
 
   return (
     <>

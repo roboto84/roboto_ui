@@ -48,6 +48,11 @@ export const SubTagHeader = styled(NonListHoverable)`
   box-shadow: 0 0 0 1px rgba(0,0,0,0.06) ,0 2px 2px rgba(0,0,0,0.04) ,0 4px 4px rgba(0,0,0,0.05) ,0 6px 6px rgba(0,0,0,0.06);
   display: flex;
   justify-content: space-between;
+
+  &.active {
+    background-color: ${(props:GlobalThemeType) => props.theme.core.mainThemeColor};
+    color: ${(props:GlobalThemeType) => props.theme.button.transitionFontColor};
+  }
 `;
 
 export const SubTagCount = styled.span`
@@ -365,4 +370,23 @@ export const ArcadiaStatsCircle = styled.div`
 export const ArcadiaStatsLabel = styled.div`
   margin-top: 14px;
   font-size: 18px;
+`;
+
+export const ArcadiaNoResults = styled.div`
+  display: flex;
+  margin: 2rem 0;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+`;
+
+export const ArcadiaNoResultsText = styled.div`
+  margin: 0 1rem;
+`;
+
+export const ArcadiaMoreResultsButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin: 4rem 0;
 `;

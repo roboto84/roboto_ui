@@ -59,7 +59,7 @@ export function AddRecord(props: AddRecordProps) {
 
   let body: JSX.Element;
   if (isAddRecordViewable) {
-    let addRecordCall: JSX.Element = <div />;
+    let addRecordCall: JSX.Element = null;
     if (confirmAdd) {
       addRecordCall = (
         <AddRecordConfirm
@@ -90,7 +90,7 @@ export function AddRecord(props: AddRecordProps) {
       </SearchAddRecordContainer>
     );
   } else {
-    body = <div />;
+    body = null;
   }
 
   return (body);

@@ -59,7 +59,7 @@ function LexiconCard(props: LexiconCardProps) {
       </LexiconCardExternalContainer>
     );
   }
-  return <div />;
+  return null;
 }
 
 LexiconCard.defaultProps = {

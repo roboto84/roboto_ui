@@ -7,6 +7,11 @@ export enum ArcResultDisplay {
   DELETE = 'DELETE',
 }
 
+export enum ArcSearchHeaderType {
+  MAIN = 'MAIN',
+  SUB = 'SUB'
+}
+
 export type ArcResultPackage = {
   id: number,
   timeStamp: string,
@@ -140,13 +145,55 @@ export type ArcResultEditConfirmProps = {
 }
 
 export type ArcSearchPageInnerLinksProps = {
-  tags: string []
+  tags: string [],
+  updateTagPerspective: CallableFunction
+}
+
+export type TagDirectoryNodeProps = {
+  tag: string,
+  isActive: boolean,
+  selectedCallback: CallableFunction
+}
+
+export type ArcSearchResultMainNodeProps = {
+  subject: string,
+  mainNode: ArcSearchResultsNode,
+  mainNodeTags: string[],
+  tagCache: string [],
+  navLocation: string
+}
+
+export type ArcSearchResultSubNodesProps = {
+  subNodesCount: number,
+  subNodes: ArcSearchResultsNode[],
+  subject: string,
+  tagCache: string [],
+  navLocation: string
+}
+
+export type ArcResultShowMoreSubNodesProps = {
+  subNodeProps: ArcSearchResultSubNodesProps,
+  showSubNodes: boolean,
+  setShowSubNodes: CallableFunction
+}
+
+export type ArcSearchMainBodyProps = {
+  hasVariousResults: boolean,
+  hasSomeResults: boolean,
+  subject: string,
+  mainNode: ArcSearchResultsNode,
+  mainNodeTags: string[],
+  subNodesCount: number,
+  subNodes: ArcSearchResultsNode[],
+  tagCache: string [],
+  navLocation: string
 }
 
 export type ArcSearchPageHeaderProps = {
-  urlLength: number,
-  tagsLength: number,
-  subject: string
+  numOfResults: number,
+  numOfTags: number,
+  subject: string,
+  type: ArcSearchHeaderType
 }
 
 export type ArcadiaSearchHomeProps = {

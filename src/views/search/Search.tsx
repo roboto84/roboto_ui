@@ -4,7 +4,7 @@ import { SearchBar } from '@/views/search/components/SearchBar';
 import { RouterItemConfig } from '@/types';
 import { RoutesGenerator } from '@/components/Nav/RoutesGenerator';
 import { Arcadia } from '@/views/search/arcadia/Arcadia';
-import { ArcadiaSearch } from '@/views/search/arcadia/components/ArcadiaSearch';
+import { ArcadiaSearch } from '@/views/search/arcadia/components/ArcadiaSearch/ArcadiaSearch';
 import { LexiconSearchHome } from '@/views/search/lexicon/components/lexiconSearchDefinition/LexiconSearchHome';
 import { ArcadiaView, SearchSystem } from '@/views/search/types/searchTypes';
 import { AddSearchRecordButton } from '@/views/search/components/AddSearchRecordButton';

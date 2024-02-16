@@ -53,5 +53,5 @@ export function Wh00tMessage(props: Wh00tMessageProps) {
     );
   }
 
-  return (<div />);
+  return null;
 }

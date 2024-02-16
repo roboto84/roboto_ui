@@ -19,45 +19,40 @@ import { TagWithCount } from '@/dataSource/types/apiTypes';
 function TagGroup(props: TagGroupProps) {
   const { title, tagList, navigate, highlight } = props;
   const tagsCountHashMap: Map<string, number> = useContext(SearchContext).state.tagsHashMap;
+
+  if (!tagList || tagList.length === 0) {
+    return null;
+  }
+
   const tagsWithCount: TagWithCount[] = tagList.map((tag: string) => ({
     tag,
     count: tagsCountHashMap.get(tag) || 0,
   })).slice(0, 20);
-
-  tagsWithCount.sort((a, b) => (a.count < b.count ? 1 : -1));
-
-  let viewBody: JSX.Element;
-  if (tagList && tagList.length > 0) {
-    viewBody = (
-      <>
-        {
-          tagsWithCount.map((tagWithCount: TagWithCount) => (
-            <Link key={'tagListItem'.concat(tagWithCount.tag)} to={navigate.concat(tagWithCount.tag)}>
-              <SubTagHeader
-                style={{
-                  minWidth: 'auto',
-                  width: 'auto',
-                  boxShadow: 'none',
-                }}
-              >
-                <span>{tagWithCount.tag}</span>
-                <SubTagCount> {tagWithCount.count}</SubTagCount>
-              </SubTagHeader>
-            </Link>
-          ))
-        }
-      </>
-    );
-  } else {
-    viewBody = <h1>No Matching Tags Found</h1>;
-  }
+  tagsWithCount.sort(
+    (a, b) => (a.count < b.count ? 1 : -1),
+  );
 
   return (
     <TagGroupSection>
       <AlphabetHeader>{title}</AlphabetHeader>
       <TagsSection isHighLight={highlight}>
         <LatestTagsListContainer>
-          {viewBody}
+          {
+            tagsWithCount.map((tagWithCount: TagWithCount) => (
+              <Link key={'tagListItem'.concat(tagWithCount.tag)} to={navigate.concat(tagWithCount.tag)}>
+                <SubTagHeader
+                  style={{
+                    minWidth: 'auto',
+                    width: 'auto',
+                    boxShadow: 'none',
+                  }}
+                >
+                  <span>{tagWithCount.tag}</span>
+                  <SubTagCount> {tagWithCount.count}</SubTagCount>
+                </SubTagHeader>
+              </Link>
+            ))
+          }
         </LatestTagsListContainer>
       </TagsSection>
     </TagGroupSection>
