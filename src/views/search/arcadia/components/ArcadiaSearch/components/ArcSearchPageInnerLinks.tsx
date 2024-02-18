@@ -11,8 +11,9 @@ export function ArcSearchPageInnerLinks(props: ArcSearchPageInnerLinksProps) {
     return null;
   }
 
+  const sortedTags = [...tags].sort();
   const resolveTagArray = (selectedTag: string) => {
-    const newSet: Set<string> = new Set();
+    const newSet: Set<string> = new Set(activeTag);
     newSet.add(selectedTag);
     updateTagPerspective(Array.from(newSet));
     setActiveTag(selectedTag === activeTag ? null : selectedTag);
@@ -21,7 +22,7 @@ export function ArcSearchPageInnerLinks(props: ArcSearchPageInnerLinksProps) {
   return (
     <InnerLinks>
       {
-        tags.map((tag: string) => (
+        sortedTags.map((tag: string) => (
           <TagDirectoryNode
             key={'tagDirectoryNode'.concat(tag)}
             tag={tag}
