@@ -27,7 +27,7 @@ export function ArcSearchMainBody(props: ArcSearchMainBodyProps) {
     navLocation,
   } = props;
   const [showSubNodes, setShowSubNodes] = useState(
-    subNodesCount === 0,
+    subNodesCount === 0 || !mainNode,
   );
 
   if (!hasSomeResults) {

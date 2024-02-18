@@ -107,7 +107,7 @@ export function SearchBar(props: SearchBarProps) {
   };
 
   const onInputChange: ChangeEventHandler = () => {
-    setInputValue(searchInputRef.current.value);
+    setInputValue(searchInputRef.current.value.toLowerCase());
   };
 
   const clearSearch = () => {
