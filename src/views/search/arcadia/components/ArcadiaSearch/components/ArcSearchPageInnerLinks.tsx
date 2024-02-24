@@ -13,7 +13,7 @@ export function ArcSearchPageInnerLinks(props: ArcSearchPageInnerLinksProps) {
 
   const sortedTags = [...tags].sort();
   const resolveTagArray = (selectedTag: string) => {
-    const newSet: Set<string> = new Set(activeTag);
+    const newSet: Set<string> = new Set();
     newSet.add(selectedTag);
     updateTagPerspective(Array.from(newSet));
     setActiveTag(selectedTag === activeTag ? null : selectedTag);
