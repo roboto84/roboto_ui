@@ -21,7 +21,7 @@ export function ArcResultShowMoreSubNodes(props: ArcResultShowMoreSubNodesProps)
         onClick={() => setShowSubNodes(true)}
         title="Copy Link"
       >
-        <TbEyeglass2 /><span> View More Results</span>
+        <TbEyeglass2 /><span> View {subNodeProps.subNodesCount} More Results</span>
       </Button>
     </ArcadiaMoreResultsButtonContainer>
   );
