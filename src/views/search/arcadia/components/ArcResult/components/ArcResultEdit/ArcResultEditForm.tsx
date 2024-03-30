@@ -25,6 +25,9 @@ export function ArcResultEditForm(props: ArcResultEditViewProps) {
   const tagsInputRef: React.MutableRefObject<any> = useRef();
   const titleInputRef: React.MutableRefObject<any> = useRef();
   const descriptionInputRef: React.MutableRefObject<any> = useRef();
+  const DescriptionInputCharacterMaxLength: number = 950;
+  const InputCharacterMaxLength: number = 200;
+  const InputCharacterMinLength: number = 4;
 
   useEffect(() => {
     titleInputRef.current.focus();
@@ -64,6 +67,8 @@ export function ArcResultEditForm(props: ArcResultEditViewProps) {
             <ArcInput
               title="Title Edit"
               type="text"
+              minLength={InputCharacterMinLength}
+              maxLength={InputCharacterMaxLength}
               defaultValue={title}
               ref={titleInputRef}
             />
@@ -73,6 +78,8 @@ export function ArcResultEditForm(props: ArcResultEditViewProps) {
             <ArcInput
               title="URL Edit"
               type="text"
+              minLength={InputCharacterMinLength}
+              maxLength={InputCharacterMaxLength}
               defaultValue={itemKey}
               ref={urlInputRef}
             />
@@ -92,8 +99,8 @@ export function ArcResultEditForm(props: ArcResultEditViewProps) {
             <ArcInput
               title="Image Edit"
               type="text"
-              min={2}
-              max={90}
+              minLength={InputCharacterMinLength}
+              maxLength={InputCharacterMaxLength}
               defaultValue={image}
               ref={imageInputRef}
             />
@@ -103,7 +110,7 @@ export function ArcResultEditForm(props: ArcResultEditViewProps) {
             <ArcInputTextArea
               title="Description Edit"
               rows={5}
-              maxLength={300}
+              maxLength={DescriptionInputCharacterMaxLength}
               defaultValue={description}
               ref={descriptionInputRef}
               autoComplete="off"
