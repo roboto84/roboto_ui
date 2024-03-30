@@ -214,6 +214,7 @@ export const ArcResultTitle = styled.span`
 
 export const ArcResultDescription = styled.span`
   font-size: 16px;
+  white-space: break-spaces;
 `;
 
 export const ArcResultTimeStamp = styled.span`

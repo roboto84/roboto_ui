@@ -91,7 +91,7 @@ export function SearchBar(props: SearchBarProps) {
       } else if (e.key === 'Enter') {
         e.preventDefault();
         setShowAutoCompleteOptions(false);
-        if (listValues.length && activeItemIndex > inactiveItemsIndex) {
+        if (listValues.length && showAutoCompleteOptions && activeItemIndex > inactiveItemsIndex) {
           addToInput(listValues[activeItemIndex].tag);
         }
         sendSearchWord();
@@ -118,7 +118,7 @@ export function SearchBar(props: SearchBarProps) {
     searchInputRef.current.focus();
   };
 
-  const takeActionOnclick = (index: number) => {
+  const takeActionOnMouseDown = () => {
     setShowAutoCompleteOptions(false);
     addToInput(listValues[activeItemIndex].tag);
     sendSearchWord();
@@ -139,7 +139,7 @@ export function SearchBar(props: SearchBarProps) {
         key={item.tag}
         ref={(e: HTMLLIElement) => (addToListItemRefs(index, e))}
         onMouseEnter={() => setActiveItemIndex(index)}
-        onMouseDown={() => takeActionOnclick(index)}
+        onMouseDown={() => takeActionOnMouseDown()}
         className={index === activeItemIndex ? 'active' : ''}
       >
         <span className="left">{item.tag}</span>
